@@ -1,0 +1,186 @@
+# plotting MaxOD600 values and Growth rate for osmolality growth dynamic experiments
+
+
+load the libraries
+```{r}
+library(tidyverse)
+library(ComplexHeatmap)
+library(readxl)
+library(circlize)
+```
+
+Load the data
+```{r}
+
+dat <- read_excel("osmo_compiled_experiment.xlsx") %>%
+  mutate(Osmolality = factor(Osmolality), Bacteria = factor(Bacteria))
+dat
+
+```
+
+Osmolalities vector
+```{r}
+osmolalities <- read_csv("Growth_data_osmolality.csv") %>%
+  select(Osmolality) %>%
+  unique() %>%
+  pull
+
+osmolalities
+```
+
+
+# Create Heatmap for MaxOD600 values
+
+## Create data set for OD_max
+```{r}
+dat_max <- dat %>%
+  group_by(Osmolality, Bacteria) %>%
+  summarise(OD_max = mean(Max_OD)) %>%
+  ungroup() %>%
+  pivot_wider(names_from = Bacteria, values_from = OD_max)
+
+dat_max
+```
+
+## transfor MaxOD600 data frame into a matrix to plot using ComplexHeatmap library
+```{r}
+# extract the row names
+row_names <- dat_max %>% select(Osmolality) %>% pull %>% paste0(" mOsm/kg")
+col_names <- c("C. bolteae", "C. citroniae", "C. clostridioforme 455", "C. clostridioforme 538")
+
+# make a matrix
+dat_matrix <- as.matrix(dat_max[-1])
+rownames(dat_matrix) <- row_names # update row names
+colnames(dat_matrix) <- col_names # update column names
+dat_matrix
+
+```
+Heatmap annotations 
+```{r}
+ha <- HeatmapAnnotation(`Osmolality (mOsm/kg)` = anno_barplot(osmolalities, 
+                                                #add_points = T,
+                                                ylim = c(200,900),
+                                                gp = gpar(fill = "black"),
+                                                bar_width = 0.5,
+                                                axis_param = list(at = c(seq(100, 900, 200)))),
+                        border = T,
+                        height =unit(2, "cm"))
+
+```
+
+
+## Create MaxOD600 heatmap
+```{r}
+# transpose the matrix
+t_dat_matrix <- t(dat_matrix)
+
+# create color palette
+f1 = colorRamp2(c(min(t_dat_matrix), max(t_dat_matrix)), c("white", "#3182bd"))
+
+# plot the heatmap
+OD_heatmap <- Heatmap(t_dat_matrix, 
+        col = f1, 
+        name = "Max OD600",
+        rect_gp = gpar(col = "white"),
+        row_dend_side = "right",
+        border = T,
+        cluster_rows = FALSE,
+        cluster_columns = FALSE,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 10, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 10),
+        row_names_max_width = max_text_width(rownames(t_dat_matrix)),
+        column_names_max_height = max_text_width(rownames(t_dat_matrix)),
+        column_names_rot = 45,
+        #top_annotation = ha,
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+        grid.text(sprintf("%.3f", t_dat_matrix[i, j]), x, y, gp = gpar(fontsize = 12))}
+        )
+
+OD_heatmap
+
+```
+
+# heatmap for growth rate
+
+## Create data set for growth rate
+```{r}
+dat_rate <- dat %>%
+  group_by(Osmolality, Bacteria) %>%
+  summarise(rate = mean(Growth_Rate)) %>%
+  ungroup() %>%
+  pivot_wider(names_from = Bacteria, values_from = rate)
+
+dat_rate
+```
+
+## Create matrix of the growth rate data set to plot using ComplexHeatmap library
+```{r}
+# extract the row names
+names <- dat_rate %>% select(Osmolality) %>% pull %>% paste0(" mOsm/kg")
+col_names <- c("C. bolteae", "C. citroniae", "C. clostridioforme 455", "C. clostridioforme 538")
+
+# make a matrix
+dat_rate_matrix <- as.matrix(dat_rate[-1])
+rownames(dat_rate_matrix) <- names
+colnames(dat_rate_matrix) <- col_names
+dat_rate_matrix
+
+```
+
+
+## Make the Heatmap
+```{r}
+t_dat_rate_matrix <- t(dat_rate_matrix)
+
+f2 = colorRamp2(c(min(t_dat_rate_matrix), max(t_dat_rate_matrix)), c("white", "red"), )
+
+rate_heatmap <- Heatmap(t_dat_rate_matrix, 
+        col = f2, 
+        name = "Growth Rate",
+        rect_gp = gpar(col = "white"),
+        row_dend_side = "right",
+        border = T,
+        cluster_rows = FALSE,
+        cluster_columns = FALSE,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 10, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 10),
+        row_names_max_width = max_text_width(rownames(t_dat_rate_matrix)),
+        column_names_max_height = max_text_width(rownames(t_dat_rate_matrix)),
+        top_annotation = ha,
+        
+        # add cell values
+        column_names_rot = 45,
+        cell_fun = function(j, i, x, y, width, height, fill) {
+        grid.text(sprintf("%.3f", t_dat_rate_matrix[i, j]), x, y, gp = gpar(fontsize = 12))}
+        )
+
+rate_heatmap
+
+```
+
+Joined heatmaps
+
+```{r}
+rate_heatmap + OD_heatmap
+```
+
+
+```{r}
+ht_list  <- rate_heatmap %v% OD_heatmap
+draw(ht_list)
+```
+
+
+
+
+
+
+
+
+
+
+
+
