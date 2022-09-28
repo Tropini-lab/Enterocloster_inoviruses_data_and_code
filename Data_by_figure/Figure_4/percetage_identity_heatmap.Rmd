@@ -1,0 +1,204 @@
+---
+title: "Untitled"
+author: "Juan"
+date: "13/01/2022"
+output: html_document
+---
+
+load the libraries
+```{r}
+library(tidyverse)
+library(ComplexHeatmap)
+library(readxl)
+library(circlize)
+```
+
+
+Load the data from the ANI analysis
+```{r}
+dat <- read_excel("ANIb_percentage_identity.xlsx")%>%
+        rename("inovirus" = "...1")
+
+# write the names for the strains
+names <- c("inovirus",
+           "C_clostridioforme_455",
+           "C_clostridioforme_538",
+           "Clostridium_bolteae_ATCC_BAA-613",
+           "C_citroniae")
+
+# give new names
+new_names <- c("C. clostridioforme 455",
+               "C. clostridioforme 538",
+               "C. bolteae ATCC BAA 613",
+               "C. citroniae WAL 17108")
+
+# match both rows and column names based on the 'names' variable
+dat <- dat[match(names[-1], dat$inovirus), names]
+dat
+```
+
+
+Make the complex heatmap matrix
+```{r}
+dat_matrix <- as.matrix(dat[-1])
+rownames(dat_matrix) <- new_names
+colnames(dat_matrix) <- new_names
+dat_matrix
+```
+
+Make the ANI heatmap using ComplexHeatmap
+```{r}
+
+f1 = colorRamp2(seq(0, max(dat_matrix), length = 3), c("#EEEEEE", "lightsteelblue1", "dodgerblue3"))
+
+Heatmap(dat_matrix, 
+        col = f1,
+        name = "% Identity",
+        column_title = "Average Nucleotide Identity", 
+        rect_gp = gpar(col = "grey80"),
+        row_dend_side = "right",
+        #border = T,
+        cluster_rows = F,
+        cluster_columns = F,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 12, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 12, fontface = "italic"),
+        column_names_rot = 45,
+        row_names_max_width = max_text_width(rownames(dat_matrix),gp = gpar(fontsize = 16)),
+        column_names_max_height = max_text_width(rownames(dat_matrix)),
+        
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+        grid.text(sprintf("%.2f", dat_matrix[i, j]), x, y, gp = gpar(fontsize = 14))}
+        )
+
+
+```
+
+# coverage
+
+Load the data from the coverage results
+```{r}
+dat <- read_excel("ANIb_alignment_coverage.xlsx")%>%
+        rename("inovirus" = "...1")
+
+# write the names for the strains
+names <- c("inovirus",
+           "C_clostridioforme_455",
+           "C_clostridioforme_538",
+           "Clostridium_bolteae_ATCC_BAA-613",
+           "C_citroniae")
+
+# give new names
+new_names <- c("C. clostridioforme 455",
+               "C. clostridioforme 538",
+               "C. bolteae ATCC BAA 613",
+               "C. citroniae WAL 17108")
+
+# match both rows and column names based on the 'names' variable
+dat <- dat[match(names[-1], dat$inovirus), names]
+dat
+```
+
+
+Make the complex heatmap matrix
+```{r}
+dat_coverage <- as.matrix(dat[-1])
+rownames(dat_coverage) <- new_names
+colnames(dat_coverage) <- new_names
+dat_coverage
+```
+Coverage heatmap
+```{r}
+f1 = colorRamp2(seq(0, max(dat_matrix), length = 3), c("#EEEEEE", "lightsteelblue1", "dodgerblue3"))
+
+Heatmap(dat_coverage, 
+        col = f1,
+        name = "% Identity",
+        column_title = "% coverage", 
+        rect_gp = gpar(col = "grey80"),
+        row_dend_side = "right",
+        #border = T,
+        cluster_rows = F,
+        cluster_columns = F,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 12, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 12, fontface = "italic"),
+        column_names_rot = 45,
+        row_names_max_width = max_text_width(rownames(dat_matrix),gp = gpar(fontsize = 16)),
+        column_names_max_height = max_text_width(rownames(dat_matrix)),
+        
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+        grid.text(sprintf("%.2f", dat_coverage[i, j]), x, y, gp = gpar(fontsize = 14))}
+        )
+
+```
+
+
+# bringing everything together
+```{r}
+col_fun = colorRamp2(seq(0, max(dat_matrix), length = 3), c("#EEEEEE", "red", "dodgerblue3"))
+
+Heatmap(dat_matrix, 
+        col = col_fun,
+        name = "% Identity",
+        column_title = "% coverage", 
+        #rect_gp = gpar(col = "grey80"),
+        rect_gp = gpar(type = "none"),
+        row_dend_side = "right",
+        #border = T,
+        cluster_rows = F,
+        cluster_columns = F,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 12, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 12, fontface = "italic"),
+        column_names_rot = 45,
+        row_names_max_width = max_text_width(rownames(dat_matrix),gp = gpar(fontsize = 16)),
+        column_names_max_height = max_text_width(rownames(dat_matrix)),
+        
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+                grid.rect(x = x, y = y, width = width, height = height, gp = gpar(col = "grey90", fill = NA))
+                
+                grid.circle(x = x, y = y, r = abs(dat_coverage[i, j])/2 * min(unit.c(width, height)),
+                                                                              gp = gpar(fill = col_fun(dat_matrix[i,j])) 
+                )
+                }
+        )
+```
+
+```{r}
+col_fun = colorRamp2(seq(0, max(dat_matrix), length = 3), c("#EEEEEE", "#fee5d9", "#de2d26"))
+
+Heatmap(dat_matrix, 
+        col = col_fun,
+        name = "% Identity",
+        column_title = "Average Nucleotide Identity", 
+        rect_gp = gpar(col = "grey80"),
+        #rect_gp = gpar(type = "none"),
+        row_dend_side = "right",
+        #border = T,
+        cluster_rows = F,
+        cluster_columns = F,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 12, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 12, fontface = "italic"),
+        column_names_rot = 45,
+        row_names_max_width = max_text_width(rownames(dat_matrix),gp = gpar(fontsize = 14)),
+        column_names_max_height = max_text_width(rownames(dat_matrix)),
+        
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+                grid.rect(x = x, y = y, width = width, height = height, gp = gpar(col = "grey90", fill = NA))
+                
+                grid.circle(x = x, y = y, r = abs(dat_coverage[i, j])/2.2 * min(unit.c(width, height)),
+                                                                              gp = gpar(fill = "#756bb1", col ="black") 
+                )
+                }
+        )
+```
+
+
+
+

@@ -1,0 +1,145 @@
+# load the libraries needed
+
+```{r}
+library(tidyverse)
+library(ComplexHeatmap)
+library(readxl)
+library(circlize)
+```
+
+# Hhpred annotations for gene
+```{r}
+hhpred_anno <- c("Structural protein #1",
+                 "Unknown protein #1",
+                 "Unknown protein #2",
+                 "Assembly/morphogenesis protein #1", 
+                 "Structural protein #2",
+                 "Structural protein #3",
+                 "Assembly protein #2 (pI-like gene)",
+                 "DNA-binding protein #1",
+                 "DNA-binding protein #2",
+                 "Unknown protein #3",
+                 "Structural protein #4",
+                 "DNA-binding protein #3",
+                 "Unknown protein #4",
+                 "Unknown protein #5",
+                 "DNA-binding protein #4",
+                 "Unknown protein #6"
+                 )
+```
+
+
+# load the dataset
+```{r}
+dat_bolt <- read_csv("output_Boltea_CF538.csv", col_names = c("Strain_ID", "CF538_ID", "percentage_identity", "coverage")) %>%
+  mutate(Strain = "C. bolteae") %>%
+  pivot_wider(names_from = Strain, values_from = percentage_identity)
+dat_bolt
+
+# join the datasets
+dat_identity <- dat_bolt %>% 
+  select(-1, -coverage) %>%
+  mutate(Gene_name = hhpred_anno) %>%
+  select(Gene_name,`C. bolteae`)
+dat_identity
+```
+
+# put into format readable by ComplexHeatmaps
+Make the complex heatmap
+```{r}
+dat_matrix <- as.matrix(dat_identity[-1])
+rownames(dat_matrix) <- dat_identity %>% select(1) %>% pull
+
+dat_matrix
+```
+
+# Make heatmap for percentage identity
+```{r}
+f1 = colorRamp2(seq(0, max(dat_matrix), length = 3), c("#eff3ff", "#9ecae1", "#4292c6"))
+
+p <- Heatmap(dat_matrix, 
+        col = f1,
+        name = "% Identity",
+        column_title = "Coverage", 
+        rect_gp = gpar(col = "black"),
+        row_dend_side = "right",
+        #border = T,
+        cluster_rows = F,
+        cluster_columns = F,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 8, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 8, fontface = "italic"),
+        column_names_rot = 45,
+        row_names_max_width = max_text_width(rownames(dat_matrix),gp = gpar(fontsize = 8)),
+        column_names_max_height = max_text_width(rownames(dat_matrix)),
+        
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+        grid.text(sprintf("%.2f", dat_matrix[i, j]), x, y, gp = gpar(fontsize = 10))}
+        )
+p
+```
+# Make heatmap for percentage coverage of query
+```{r}
+dat_bolt <- read_csv("output_Boltea_CF538.csv", col_names = c("Strain_ID", "CF538_ID", "percentage_identity", "coverage")) %>%
+  mutate(Strain = "C. bolteae") %>%
+  pivot_wider(names_from = Strain, values_from = coverage)
+dat_bolt
+
+# join the datasets
+dat_coverage <- dat_bolt %>% 
+  select(-1, -percentage_identity) %>%
+  mutate(Gene_name = hhpred_anno) %>%
+  select(Gene_name,`C. bolteae`)
+dat_coverage
+```
+# put into format readable by ComplexHeatmaps
+Make the complex heatmap
+```{r}
+dat_matrix_coverage <- as.matrix(dat_coverage[-1])
+rownames(dat_matrix_coverage) <- dat_coverage %>% select(1) %>% pull
+
+dat_matrix_coverage
+```
+
+# Make heatmap for coverage
+```{r}
+f1 = colorRamp2(seq(0, max(dat_matrix), length = 3), c("#f2f0f7", "#bcbddc", "#807dba"))
+
+p2 <- Heatmap(dat_matrix_coverage, 
+        col = f1,
+        name = "% Coverage",
+        column_title = "Coverage", 
+        rect_gp = gpar(col = "black"),
+        row_dend_side = "right",
+        #border = T,
+        cluster_rows = F,
+        cluster_columns = F,
+        row_names_side = "left",
+        row_names_gp = gpar(fontsize = 8, fontface = "italic"), # controls the font size of row names
+        column_names_gp = gpar(fontsize = 8, fontface = "italic"),
+        column_names_rot = 45,
+        row_names_max_width = max_text_width(rownames(dat_matrix_coverage),gp = gpar(fontsize = 8)),
+        column_names_max_height = max_text_width(rownames(dat_matrix_coverage)),
+        
+        
+        cell_fun = function(j, i, x, y, width, height, fill) {
+        grid.text(sprintf("%.2f", dat_matrix_coverage[i, j]), x, y, gp = gpar(fontsize = 10))}
+        )
+p2
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

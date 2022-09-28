@@ -1,0 +1,194 @@
+
+# correlation plots
+
+load the libraries
+```{r}
+library(tidyverse)
+library(readxl)
+library(ggsci)
+library(ggpubr)
+```
+
+
+load the data:
+```{r}
+dat <- read_excel("osmo_compiled_experiment.xlsx") %>%
+  mutate(Bacteria = factor(Bacteria))
+dat
+
+dat$Bacteria <- factor(dat$Bacteria, levels = c("Clostridium bolteae",
+                                                "Clostridium clostridioforme 538",
+                                                "Clostridium clostridioforme 455",
+                                                "Clostridium citroniae"))
+```
+
+
+# Plot for growth rate vs inovirus copy number
+```{r}
+breaks_log10 <- function(x) {
+  low <- floor(log10(min(x)))
+  high <- ceiling(log10(max(x)))
+
+  10^(seq.int(low, high, by = 2))
+}
+
+p <- dat %>%
+  ggplot(aes(x = Growth_Rate, y = `Inovirus pI copies/mL supernatant`, color = Bacteria)) +
+    geom_point() +
+    geom_smooth(method = "lm")+
+
+      scale_y_log10(breaks = breaks_log10, limits = c(1e+3, 1e+8),n.breaks = 6, expand = c(0, 0),
+                labels = scales::trans_format(log10, scales::math_format(10^.x))) +
+    annotation_logticks(sides = "l") +
+    scale_x_continuous(limits = c(0, 0.30), breaks = seq(0,0.30,0.05), expand = expansion(mult = 0)) +
+    scale_color_aaas() +
+    theme_light() +
+    labs(x = "Growth Rate (OD/h)", y = "Inovirus pI copies/mL", color = "Strain") +
+    theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black")) 
+p
+
+
+```
+# Look at the correlation coefficient value for each correlation
+
+## 1) C. bolteae assumptions and correlation test
+```{r}
+dat_bolt <- dat %>% filter(Bacteria == "Clostridium bolteae")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_bolt$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_bolt$`Inovirus pI copies/mL supernatant`)
+
+res <- cor.test(dat_bolt$Growth_Rate, dat_bolt$`Inovirus pI copies/mL supernatant`, method = "spearman")
+res
+```
+## 2) C. clostridioforme 538 assumptions and correlation test
+```{r}
+dat_CF538 <- dat %>% filter(Bacteria == "Clostridium clostridioforme 538")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_CF538$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_CF538$`Inovirus pI copies/mL supernatant`)
+
+# We need to use spearman, since once of the variables is not normally distributed!!
+res <- cor.test(dat_CF538$Growth_Rate, dat_CF538$`Inovirus pI copies/mL supernatant`, method = "spearman")
+res
+```
+
+## 3) C. clostridioforme 455 assumptions and correlation test
+```{r}
+dat_CF455 <- dat %>% filter(Bacteria == "Clostridium clostridioforme 455")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_CF455$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_CF455$`Inovirus pI copies/mL supernatant`)
+
+# We need to use spearman, since once of the variables is not normally distributed!!
+res <- cor.test(dat_CF455$Growth_Rate, dat_CF455$`Inovirus pI copies/mL supernatant`, method = "spearman")
+res
+```
+## 4) C. citroniae assumptions and correlation test
+```{r}
+dat_citroniae <- dat %>% filter(Bacteria == "Clostridium citroniae")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_citroniae$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_citroniae$`Inovirus pI copies/mL supernatant`)
+
+# We need to use spearman, since once of the variables is not normally distributed!!
+res <- cor.test(dat_citroniae$Growth_Rate, dat_citroniae$`Inovirus pI copies/mL supernatant`, method = "spearman")
+res
+```
+
+# Biofilm formations correlation with Inovirus pI copy numbers
+
+```{r}
+
+
+p <- dat %>%
+  ggplot(aes(x = `Biofilm Formation OD 595`, y = `Inovirus pI copies/mL supernatant`, color = Bacteria)) +
+    geom_point() +
+    geom_smooth(method = "lm") +
+
+      scale_y_log10(breaks = breaks_log10, limits = c(1e+3, 1e+8),expand = c(0, 0), n.breaks = 8,
+                labels = scales::trans_format(log10, scales::math_format(10^.x))) +
+    annotation_logticks(sides = "l") +
+    scale_x_continuous(limits = c(0, 3.2), breaks = seq(0,3.5,0.5), expand = expansion(mult = 0)) +
+    
+  #facet_grid(.~Bacteria, scales = "free")+
+  scale_color_aaas() +
+    theme_light() +
+    labs(x = "Biofilm formation (OD595)", y = "Inovirus pI copies/mL", color = "Strain") +
+    theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black")) 
+p
+
+```
+
+# Look at the R value for each correlation
+
+## 1) C. bolteae assumptions and correlation test
+```{r}
+dat_bolt <- dat %>% filter(Bacteria == "Clostridium bolteae")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_bolt$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_bolt$`Biofilm Formation OD 595`)
+
+res <- cor.test(dat_bolt$Growth_Rate, dat_bolt$`Biofilm Formation OD 595`, method = "spearman")
+res
+```
+## 2) C. clostridioforme 538 assumptions and correlation test
+```{r}
+dat_CF538 <- dat %>% filter(Bacteria == "Clostridium clostridioforme 538")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_CF538$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_CF538$`Biofilm Formation OD 595`)
+
+# We need to use spearman, since once of the variables is not normally distributed!!
+res <- cor.test(dat_CF538$Growth_Rate, dat_CF538$`Biofilm Formation OD 595`, method = "spearman")
+res
+```
+
+## 3) C. clostridioforme 455 assumptions and correlation test
+```{r}
+dat_CF455 <- dat %>% filter(Bacteria == "Clostridium clostridioforme 455")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_CF455$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_CF455$`Biofilm Formation OD 595`)
+
+# We need to use spearman, since once of the variables is not normally distributed!!
+res <- cor.test(dat_CF455$Growth_Rate, dat_CF455$`Biofilm Formation OD 595`, method = "spearman")
+res
+```
+## 4) C. citroniae assumptions and correlation test
+```{r}
+dat_citroniae <- dat %>% filter(Bacteria == "Clostridium citroniae")
+
+# Shapiro-Wilk normality test for Growth Rate
+shapiro.test(dat_citroniae$Growth_Rate) 
+# Shapiro-Wilk normality test Inovirus copy number
+shapiro.test(dat_citroniae$`Biofilm Formation OD 595`)
+
+# We need to use spearman, since once of the variables is not normally distributed!!
+res <- cor.test(dat_citroniae$Growth_Rate, dat_citroniae$`Biofilm Formation OD 595`, method = "spearman")
+res
+```
+
+
+
+
+
+
