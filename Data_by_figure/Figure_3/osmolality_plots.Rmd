@@ -1,0 +1,219 @@
+
+# Visualizing the osmolality data
+
+## 1. load the libraries
+```{r}
+library(tidyverse)
+library(readxl)
+library(ggsci)
+```
+
+## 2.load the data:
+```{r}
+dat <- read_excel("osmo_compiled_experiment.xlsx") %>%
+  mutate(Bacteria = factor(Bacteria))
+dat
+
+dat$Bacteria <-factor(dat$Bacteria, levels = c("Enterocloster bolteae",
+                                               "Enterocloster clostridioformis 538",
+                                               "Enterocloster clostridioformis 455", 
+                                               "Enterocloster citroniae"))
+```
+
+## Make a Plot to compare MaxOD600 compared osmolality
+```{r}
+
+p <- dat %>%
+  ggplot(aes(x = Osmolality, y = Max_OD, colour = Bacteria)) +
+    stat_summary(geom = "errorbar", fun.data = "mean_sdl", 
+            fun.args = list(mult = 1), width = 5, size = 0.8) +
+    stat_summary(geom = "line", fun = mean, size = 1, alpha = 0.5) +
+    stat_summary(geom = "point", fun = mean, size = 2) +
+    #geom_point(alpha = 0.9, size = 2) +
+
+  scale_y_continuous(limits = c(0, 1.6), n.breaks = 8, expand = expansion(mult = 0)) +
+  scale_color_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Max OD600", color = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black"),
+        legend.position = c(0.25, 0.25)) 
+p
+```
+
+## Make a Plot to compare growth rate compared osmolality
+```{r}
+p2 <- dat %>%
+  ggplot(aes(x = Osmolality, y = Growth_Rate, colour = Bacteria)) +
+    stat_summary(geom = "errorbar", fun.data = "mean_sdl", 
+            fun.args = list(mult = 1), width = 5, size = 0.8) +
+    stat_summary(geom = "line", fun = mean, size = 1, alpha = 0.5) +
+    #stat_summary(geom = "point", fun = mean, size = 2) +
+    geom_point(alpha = 0.9, size = 2) +
+
+  scale_y_continuous(limits = c(0, 0.30), breaks = seq(0,0.30,0.05), expand = expansion(mult = 0)) +
+  scale_color_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Growth Rate (OD/h)", color = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black")) 
+p2
+```
+
+## Plot for MaxOD600 - boxplot
+```{r}
+p <- dat %>%
+  ggplot(aes(x = Osmolality, y = Max_OD, group = interaction(Osmolality, Bacteria), fill = Bacteria)) +
+    geom_boxplot(alpha = 0.8) +
+    #stat_summary(geom = "point", fun = mean, size = 2) +
+    #geom_point( position=position_jitterdodge()) +
+
+  scale_y_continuous(limits = c(0, 1.6), n.breaks = 8, expand = expansion(mult = 0)) +
+  scale_fill_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Max OD600", color = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black"),
+        legend.position = c(0.25, 0.25)) 
+p
+```
+## Plot for growth rate - boxplots
+```{r}
+
+p2 <- dat %>%
+  ggplot(aes(x = Osmolality, y = Growth_Rate, group = interaction(Osmolality, Bacteria), fill = Bacteria)) +
+    geom_boxplot(alpha = 0.8) +
+
+
+  scale_y_continuous(limits = c(0, 0.18), n.breaks = 9, expand = expansion(mult = 0)) +
+  scale_fill_jama() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Growth Rate (OD/h)", color = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black"),
+        legend.position = c(0.25, 0.25)) 
+p2
+```
+
+
+## plot - growth rate against osmolality (Facet by strain)
+```{r}
+p <- dat %>%
+  ggplot(aes(x = Osmolality, y = Growth_Rate, group = interaction(Osmolality, Bacteria), fill = Bacteria)) +
+    geom_boxplot(alpha= 0.5) +
+    facet_grid(.~ Bacteria) +
+
+  scale_y_continuous(limits = c(0, 0.30), breaks = seq(0,0.30, 0.05)) +
+  scale_x_continuous(expand = expansion(add = 20)) +
+  scale_fill_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Growth Rate (OD/h)", fill = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "grey96"),
+        axis.ticks = element_line(color = "black"),
+        #strip.text.x = element_text(size=12, face="italic", color = "black"),
+        strip.text.x = element_blank(),
+        strip.background = element_blank()
+        ) 
+p
+```
+
+## plot - MaxOD600 against osmolality (Facet by strain)
+```{r}
+
+p <- dat %>%
+  ggplot(aes(x = Osmolality, y = Max_OD, group = interaction(Osmolality, Bacteria), fill = Bacteria)) +
+    geom_boxplot(alpha= 0.5) +
+    facet_grid(.~ Bacteria) +
+
+  #scale_y_continuous(limits = c(0, 0.30), breaks = seq(0,0.30, 0.05)) +
+  scale_y_continuous(limits = c(0, 1.6), n.breaks = 8, expand = c(0,0)) +
+  scale_x_continuous(expand = expansion(add = 20)) +
+  scale_fill_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Max OD600", color = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "grey96"),
+        axis.ticks = element_line(color = "black"),
+        #strip.text.x = element_text(size=12, face="italic", color = "black"),
+        axis.text=element_text(size=16),
+        strip.text.x = element_blank()
+        ) 
+p
+```
+
+
+## plot - inovirus copies against osmolality (Facet by strain)
+```{r}
+breaks_log10 <- function(x) {
+  low <- floor(log10(min(x)))
+  high <- ceiling(log10(max(x)))
+
+  10^(seq.int(low, high))
+}
+
+
+p <- dat %>%
+  ggplot(aes(x = Osmolality, y = `Inovirus pI copies/mL supernatant`, group = interaction(Osmolality, Bacteria), fill = Bacteria)) +
+    geom_boxplot(alpha= 0.5) +
+    facet_grid(.~ Bacteria) +
+  annotation_logticks() +
+
+    scale_y_log10(breaks = breaks_log10,
+                labels = scales::trans_format(log10, scales::math_format(10^.x)), expand = c(0,0)) +
+  scale_x_continuous(expand = expansion(add = 20)) +
+  scale_fill_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "Inovirus pI copies/mL supernatant", color = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "grey96"),
+        axis.ticks = element_line(color = "black"),
+        #strip.text.x = element_text(size=12, face="italic", color = "black"),
+        strip.text.x = element_blank(),
+        axis.text=element_text(size=16),
+        strip.background = element_blank()
+        ) 
+p
+```
+
+
+## plot - biofilm formation against osmolality (Facet by strain)
+```{r}
+p <- dat %>%
+  ggplot(aes(x = Osmolality, y = `Biofilm Formation OD 595`, group = interaction(Osmolality, Bacteria), fill = Bacteria)) +
+    geom_boxplot(alpha= 0.5) +
+    facet_grid(.~ Bacteria) +
+
+  scale_y_continuous(limits = c(0, 3), breaks = seq(0,3, 0.5)) +
+  scale_x_continuous(expand = expansion(add = 20)) +
+  scale_fill_aaas() +
+  theme_light() +
+  labs(x = "Osmolality (mOsm/kg)", y = "OD595", fill = "Strain") +
+  theme(panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "grey96"),
+        axis.ticks = element_line(color = "black"),
+        #strip.text.x = element_text(size=12, face="italic", color = "black"),
+        strip.text.x = element_blank(),
+        strip.background = element_blank()
+        ) 
+p
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
