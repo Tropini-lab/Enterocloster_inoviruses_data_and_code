@@ -1,0 +1,126 @@
+# 1. Load libraries
+```{r}
+library(tidyverse)
+library(ggsci)
+library(ggplot2)
+library(readxl)
+```
+
+#. load the data
+```{r}
+# data for pI gene
+dat_pI <- read_excel("pI_gene_qPCR.xlsx") %>%
+  mutate(Gene = "pI") %>%
+  select(Target, Sample, Cq, Gene) %>%
+  separate(Target, into = c("Strain", "Replicate")) %>% # Split target columns into its replicates
+  mutate(Strain = factor(Strain), Sample = factor(Sample))
+dat_pI
+
+# data for 16S gene
+dat_16S <- read_excel("pI_gene_qPCR.xlsx") %>%
+  mutate(Gene = "16S") %>%
+  select(Target, Sample, Cq, Gene) %>%
+  separate(Target, into = c("Strain", "Replicate")) %>% # Split target columns into its replicates
+  mutate(Strain = factor(Strain), Sample = factor(Sample))
+dat_16S
+
+
+# adjust levels
+sample_order <- c("Supp_no_treat", "Supp_DNase")
+strain_order<- c("EB", "EF538" ,"EF455", "EC", "BT")
+
+# adjust factors for Sample
+dat_pI$Sample <- factor(dat_pI$Sample, levels = sample_order)
+dat_16S$Sample <- factor(dat_16S$Sample, levels = sample_order)
+
+#Adjust factors for Strain
+dat_pI$Strain <- factor(dat_pI$Strain, levels = strain_order)
+dat_16S$Strain <- factor(dat_16S$Strain, levels = strain_order)
+
+
+```
+
+# 3. Join the data into one data frame
+```{r}
+dat_joined <- bind_rows(dat_pI, dat_16S) %>%
+  separate(Target, into = c("Strain", "Replicate")) %>% # Split target columns into its replicates
+  mutate(Cq = if_else(is.na(Cq), 40, Cq)) %>%
+  mutate(Sample = factor(Sample))
+dat_joined
+
+dat_joined$Sample <- factor(dat_joined$Sample, levels = c("Supp_no_treat", "Supp_DNase"))
+```
+
+# 4. plot the data
+```{r}
+dat_joined %>%
+  ggplot(aes(x = Sample, y = Cq, fill = Gene)) +
+    geom_boxplot() +
+    facet_grid(.~ Strain) +
+    theme_classic()+ 
+    theme(axis.text.x = element_text(angle = 90)) +
+    scale_y_continuous(limits = c(15,41), breaks = seq(15,40,5), expand = c(0,0))
+```
+
+# Plot of only pI
+```{r}
+p_PI <- dat_pI %>%
+  mutate(Cq = if_else(is.na(Cq), 40, Cq)) %>%
+  filter(Sample != "NA") %>%
+    ggplot(aes(x = Sample, y = Cq, color = Strain)) +
+    stat_summary(geom = "point", fun = "mean", size = 2) +
+    stat_summary(geom = "errorbar", fun.data = "mean_se", width=.4) +
+    geom_jitter(width = 0.2, alpha =0.2) +
+    geom_hline(yintercept = 40, linetype = 2, color = "red") +
+  
+    
+    facet_grid(.~ Strain) +
+    scale_y_continuous(limits = c(18,42), breaks = seq(18,42,2), expand = c(0,0)) +
+    scale_color_manual(values = c("#3b4992", "#ee0000" , "#008b45", "#631879", "black")) +
+    
+    theme_light()+ 
+      theme(axis.text.x = element_text(angle = 90),
+        panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black")) 
+p_PI
+```
+
+
+# Plot of only 16S
+```{r}
+# NTC value for Cq
+NTC <- dat_16S %>% filter(is.na(Sample)) %>% select(Cq) %>% pull()
+
+
+# plot
+p_16S <- dat_16S %>%
+  mutate(Cq = if_else(is.na(Cq), 40, Cq)) %>%
+  filter(Sample != "NA") %>%
+    ggplot(aes(x = Sample, y = Cq, color = Strain)) +
+    stat_summary(geom = "point", fun = "mean", size = 2) +
+    stat_summary(geom = "errorbar", fun.data = "mean_se", width=.4) +
+    geom_jitter(width = 0.2, alpha =0.2) +
+    geom_hline(yintercept = NTC, linetype = 2, color = "red") +
+  
+    
+    facet_grid(.~ Strain) +
+    scale_y_continuous(limits = c(14,34), breaks = seq(14,34,2), expand = c(0,0)) +
+    scale_color_manual(values = c("#3b4992", "#ee0000" , "#008b45", "#631879", "black")) +
+    
+    theme_light()+ 
+      theme(axis.text.x = element_text(angle = 90),
+        panel.border = element_rect(color = "black"),
+        panel.grid = element_line(colour = "white"),
+        axis.ticks = element_line(color = "black")) 
+p_16S
+```
+
+
+
+
+
+
+
+
+
