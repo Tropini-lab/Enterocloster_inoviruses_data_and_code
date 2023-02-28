@@ -1,0 +1,18 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>DR,X276_RS01700_340888-350667,9779,63154,0.6180,100.000,16
+NZ_CP011966,341396,342466,24005,25075,-,CDS,ID=X276_RS01655;locus_tag=X276_RS01655;product=site-specific integrase;pfam=Phage_integrase 92.0;inoPC=NA;coat_pred=NA
+NZ_CP011966,342683,343045,25292,25654,-,CDS,ID=X276_RS01660;locus_tag=X276_RS01660;product=helix-turn-helix transcriptional regulator;pfam=HTH_19 46.4;inoPC=NA;coat_pred=NA
+NZ_CP011966,343203,343388,25812,25997,+,CDS,ID=X276_RS01665;locus_tag=X276_RS01665;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,343363,343653,25972,26262,+,CDS,ID=X276_RS01670;locus_tag=X276_RS01670;product=transcription factor;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,343665,343916,26274,26525,+,CDS,ID=X276_RS01675;locus_tag=X276_RS01675;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,343906,344061,26515,26670,+,CDS,ID=X276_RS27220;locus_tag=X276_RS27220;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,344384,345382,26993,27991,+,CDS,ID=X276_RS01680;locus_tag=X276_RS01680;product=replication protein;pfam=Viral_Rep 39.4;inoPC=NA;coat_pred=NA
+NZ_CP011966,345396,345572,28005,28181,+,CDS,ID=X276_RS27225;locus_tag=X276_RS27225;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,345730,345960,28339,28569,+,CDS,ID=X276_RS01685;locus_tag=X276_RS01685;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,346016,347170,28625,29779,+,CDS,ID=X276_RS01690;locus_tag=X276_RS01690;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,347170,347328,29779,29937,+,CDS,ID=X276_RS27230;locus_tag=X276_RS27230;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,347321,347569,29930,30178,+,CDS,ID=X276_RS01695;locus_tag=X276_RS01695;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,347725,347871,30334,30480,+,CDS,ID=X276_RS27235;locus_tag=X276_RS27235;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP011966,347947,348705,30556,31314,+,CDS,ID=X276_RS01700;locus_tag=X276_RS01700;product=hypothetical protein;pfam=Zot 32.2;inoPC=PC_055 52.1;coat_pred=NA
+NZ_CP011966,349403,349555,32012,32164,+,CDS,ID=X276_RS27240;locus_tag=X276_RS27240;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
