@@ -1,0 +1,21 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>DR,HMPREF9467_RS30485_7260-15627,8367,41861,0.7020,97.368,38
+NZ_JH376883,7360,8556,7110,8306,+,CDS,ID=HMPREF9467_RS24735;locus_tag=HMPREF9467_RS24735;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,8557,8775,8307,8525,+,CDS,ID=HMPREF9467_RS24740;locus_tag=HMPREF9467_RS24740;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,8869,9843,8619,9593,+,CDS,ID=HMPREF9467_RS24745;locus_tag=HMPREF9467_RS24745;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,10145,10429,9895,10179,+,CDS,ID=HMPREF9467_RS24750;locus_tag=HMPREF9467_RS24750;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,10474,10635,10224,10385,+,CDS,ID=HMPREF9467_RS29475;locus_tag=HMPREF9467_RS29475;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,10653,11000,10403,10750,-,CDS,ID=HMPREF9467_RS30480;locus_tag=HMPREF9467_RS30480;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,10914,11420,10664,11170,+,CDS,ID=HMPREF9467_RS30485;locus_tag=HMPREF9467_RS30485;product=hypothetical protein;pfam=NA;inoPC=PC_055 34.3;coat_pred=NA
+NZ_JH376883,11515,12435,11265,12185,+,CDS,ID=HMPREF9467_RS24760;locus_tag=HMPREF9467_RS24760;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,12428,12607,12178,12357,+,CDS,ID=HMPREF9467_RS24765;locus_tag=HMPREF9467_RS24765;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,12612,12797,12362,12547,+,CDS,ID=HMPREF9467_RS24770;locus_tag=HMPREF9467_RS24770;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,12843,13088,12593,12838,-,CDS,ID=HMPREF9467_RS24775;locus_tag=HMPREF9467_RS24775;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,13081,13728,12831,13478,-,CDS,ID=HMPREF9467_RS24780;locus_tag=HMPREF9467_RS24780;product=DUF2726 domain-containing protein;pfam=DUF2726 44.1;inoPC=NA;coat_pred=NA
+NZ_JH376883,13766,14008,13516,13758,-,CDS,ID=HMPREF9467_RS24785;locus_tag=HMPREF9467_RS24785;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,14216,14413,13966,14163,+,CDS,ID=HMPREF9467_RS24790;locus_tag=HMPREF9467_RS24790;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,14416,14655,14166,14405,+,CDS,ID=HMPREF9467_RS28070;locus_tag=HMPREF9467_RS28070;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,14628,14828,14378,14578,+,CDS,ID=HMPREF9467_RS24795;locus_tag=HMPREF9467_RS24795;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,14915,15175,14665,14925,+,CDS,ID=HMPREF9467_RS24800;locus_tag=HMPREF9467_RS24800;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376883,15337,15555,15087,15305,+,CDS,ID=HMPREF9467_RS24805;locus_tag=HMPREF9467_RS24805;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA

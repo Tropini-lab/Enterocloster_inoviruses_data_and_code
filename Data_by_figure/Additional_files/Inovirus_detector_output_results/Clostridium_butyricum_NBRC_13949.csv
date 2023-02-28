@@ -1,0 +1,12 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>Prophage,FNP73_RS21300_587-4583,3997,5629,0.6200
+NZ_AP019719,587,766,317,496,+,CDS,ID=FNP73_RS21280;locus_tag=FNP73_RS21280;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_AP019719,763,912,493,642,+,CDS,ID=FNP73_RS21705;locus_tag=FNP73_RS21705;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_AP019719,931,1191,661,921,+,CDS,ID=FNP73_RS21285;locus_tag=FNP73_RS21285;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_AP019719,1280,2584,1010,2314,+,CDS,ID=FNP73_RS21290;locus_tag=FNP73_RS21290;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_AP019719,2584,2844,2314,2574,+,CDS,ID=FNP73_RS21295;locus_tag=FNP73_RS21295;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_AP019719,2857,3558,2587,3288,+,CDS,ID=FNP73_RS21300;locus_tag=FNP73_RS21300;product=hypothetical protein;pfam=Zot 60.8;inoPC=PC_006 84.5;coat_pred=NA
+NZ_AP019719,3749,3898,3479,3628,+,CDS,ID=FNP73_RS21710;locus_tag=FNP73_RS21710;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_AP019719,3888,4583,3618,4313,+,CDS,ID=FNP73_RS21305;locus_tag=FNP73_RS21305;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+

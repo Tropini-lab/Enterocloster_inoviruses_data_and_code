@@ -1,0 +1,15 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>Prophage,D4757_RS13465_18091-26833,8743,53194,0.7265
+NZ_QYRW01000026,18091,19134,17916,18959,-,CDS,ID=D4757_RS13445;locus_tag=D4757_RS13445;product=replication initiation factor domain-containing protein;pfam=Rep_trans 189.9;inoPC=PC_003 62.2;coat_pred=NA
+NZ_QYRW01000026,19364,19609,19189,19434,-,CDS,ID=D4757_RS13450;locus_tag=D4757_RS13450;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,20111,20284,19936,20109,-,CDS,ID=D4757_RS13455;locus_tag=D4757_RS13455;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,20498,20779,20323,20604,+,CDS,ID=D4757_RS13460;locus_tag=D4757_RS13460;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,20982,21740,20807,21565,-,CDS,ID=D4757_RS13465;locus_tag=D4757_RS13465;product=hypothetical protein;pfam=NA;inoPC=PC_055 62.4;coat_pred=NA
+NZ_QYRW01000026,21938,22105,21763,21930,-,CDS,ID=D4757_RS13470;locus_tag=D4757_RS13470;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,22119,22397,21944,22222,-,CDS,ID=D4757_RS13475;locus_tag=D4757_RS13475;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,22697,23653,22522,23478,-,CDS,ID=D4757_RS13480;locus_tag=D4757_RS13480;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,23741,23959,23566,23784,-,CDS,ID=D4757_RS13485;locus_tag=D4757_RS13485;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,23971,25266,23796,25091,-,CDS,ID=D4757_RS13490;locus_tag=D4757_RS13490;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QYRW01000026,25874,26833,25699,26658,-,CDS,ID=D4757_RS13495;locus_tag=D4757_RS13495;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+

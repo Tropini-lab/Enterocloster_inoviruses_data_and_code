@@ -1,0 +1,18 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>DR,FL153_RS30025_2445375-2453078,7703,60699,0.6605,97.368,38
+NZ_BJLB01000001,2445447,2445665,26565,26783,-,CDS,ID=FL153_RS12595;locus_tag=FL153_RS12595;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2445827,2446087,26945,27205,-,CDS,ID=FL153_RS12600;locus_tag=FL153_RS12600;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2446174,2446374,27292,27492,-,CDS,ID=FL153_RS12605;locus_tag=FL153_RS12605;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2446347,2446586,27465,27704,-,CDS,ID=FL153_RS12610;locus_tag=FL153_RS12610;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2446791,2447042,27909,28160,+,CDS,ID=FL153_RS12615;locus_tag=FL153_RS12615;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2447119,2447385,28237,28503,+,CDS,ID=FL153_RS12620;locus_tag=FL153_RS12620;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2447732,2447911,28850,29029,-,CDS,ID=FL153_RS12630;locus_tag=FL153_RS12630;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2447904,2448824,29022,29942,-,CDS,ID=FL153_RS12635;locus_tag=FL153_RS12635;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2448919,2449425,30037,30543,-,CDS,ID=FL153_RS30025;locus_tag=FL153_RS30025;product=hypothetical protein;pfam=NA;inoPC=PC_055 34.2;coat_pred=NA
+NZ_BJLB01000001,2449339,2449686,30457,30804,+,CDS,ID=FL153_RS30030;locus_tag=FL153_RS30030;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2449704,2449865,30822,30983,-,CDS,ID=FL153_RS29085;locus_tag=FL153_RS29085;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2449910,2450194,31028,31312,-,CDS,ID=FL153_RS12645;locus_tag=FL153_RS12645;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2450496,2451470,31614,32588,-,CDS,ID=FL153_RS12650;locus_tag=FL153_RS12650;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2451564,2451782,32682,32900,-,CDS,ID=FL153_RS12655;locus_tag=FL153_RS12655;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_BJLB01000001,2451783,2452979,32901,34097,-,CDS,ID=FL153_RS12660;locus_tag=FL153_RS12660;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA

@@ -1,0 +1,13 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>DR,HMPREF9469_RS18055_191631-197987,6356,62204,0.7935,98.113,53
+NZ_JH376424,191752,191982,29557,29787,-,CDS,ID=HMPREF9469_RS18045;locus_tag=HMPREF9469_RS18045;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376424,192078,192779,29883,30584,-,CDS,ID=HMPREF9469_RS18050;locus_tag=HMPREF9469_RS18050;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376424,193017,193685,30822,31490,-,CDS,ID=HMPREF9469_RS18055;locus_tag=HMPREF9469_RS18055;product=hypothetical protein;pfam=NA;inoPC=PC_055 30.8;coat_pred=NA
+NZ_JH376424,193806,194093,31611,31898,-,CDS,ID=HMPREF9469_RS18060;locus_tag=HMPREF9469_RS18060;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376424,194109,194342,31914,32147,-,CDS,ID=HMPREF9469_RS18065;locus_tag=HMPREF9469_RS18065;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376424,194393,194572,32198,32377,-,CDS,ID=HMPREF9469_RS18070;locus_tag=HMPREF9469_RS18070;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376424,194793,194999,32598,32804,+,CDS,ID=HMPREF9469_RS18075;locus_tag=HMPREF9469_RS18075;product=Arc family DNA-binding protein;pfam=Arc 34.1;inoPC=NA;coat_pred=NA
+NZ_JH376424,195115,195396,32920,33201,-,CDS,ID=HMPREF9469_RS18080;locus_tag=HMPREF9469_RS18080;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH376424,195440,196267,33245,34072,-,CDS,ID=HMPREF9469_RS18085;locus_tag=HMPREF9469_RS18085;product=hypothetical protein;pfam=NA;inoPC=PC_018 64.0;coat_pred=NA
+NZ_JH376424,196371,196643,34176,34448,-,CDS,ID=HMPREF9469_RS18090;locus_tag=HMPREF9469_RS18090;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA

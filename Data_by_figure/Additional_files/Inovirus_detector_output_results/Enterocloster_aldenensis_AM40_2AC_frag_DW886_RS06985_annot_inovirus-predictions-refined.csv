@@ -1,0 +1,19 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>Integrase,DW886_RS06985_269229-285262,16033,62223,0.8185,100.000,15
+NZ_QSGP01000002,269816,270868,21542,22594,-,CDS,ID=DW886_RS06935;locus_tag=DW886_RS06935;product=tyrosine-type recombinase/integrase;pfam=Phage_integrase 115.6;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,270882,273596,22608,25322,-,CDS,ID=DW886_RS06940;locus_tag=DW886_RS06940;product=EAL domain-containing protein;pfam=EAL 216.3;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,274355,275743,26081,27469,+,CDS,ID=DW886_RS06945;locus_tag=DW886_RS06945;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,275740,276012,27466,27738,+,CDS,ID=DW886_RS06950;locus_tag=DW886_RS06950;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,276275,276946,28001,28672,+,CDS,ID=DW886_RS06955;locus_tag=DW886_RS06955;product=hypothetical protein;pfam=NA;inoPC=PC_018 68.1;coat_pred=NA
+NZ_QSGP01000002,277081,277413,28807,29139,+,CDS,ID=DW886_RS06960;locus_tag=DW886_RS06960;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,277588,277836,29314,29562,+,CDS,ID=DW886_RS06965;locus_tag=DW886_RS06965;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,277971,278177,29697,29903,-,CDS,ID=DW886_RS06970;locus_tag=DW886_RS06970;product=ribbon-helix-helix protein, CopG family;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,278399,278632,30125,30358,+,CDS,ID=DW886_RS06975;locus_tag=DW886_RS06975;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,278651,278941,30377,30667,+,CDS,ID=DW886_RS06980;locus_tag=DW886_RS06980;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,278993,279661,30719,31387,+,CDS,ID=DW886_RS06985;locus_tag=DW886_RS06985;product=ATP-binding protein;pfam=NA;inoPC=PC_055 31.4;coat_pred=NA
+NZ_QSGP01000002,279938,280597,31664,32323,+,CDS,ID=DW886_RS06990;locus_tag=DW886_RS06990;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,280777,281007,32503,32733,+,CDS,ID=DW886_RS06995;locus_tag=DW886_RS06995;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,281131,281595,32857,33321,-,CDS,ID=DW886_RS07000;locus_tag=DW886_RS07000;product=VanZ family protein;pfam=VanZ 74.6;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,281635,282267,33361,33993,-,CDS,ID=DW886_RS07005;locus_tag=DW886_RS07005;product=DUF4317 family protein;pfam=DUF4317 156.2;inoPC=NA;coat_pred=NA
+NZ_QSGP01000002,282409,284685,34135,36411,-,CDS,ID=DW886_RS07010;locus_tag=DW886_RS07010;product=ABC transporter permease;pfam=FtsX 69.3;inoPC=NA;coat_pred=NA

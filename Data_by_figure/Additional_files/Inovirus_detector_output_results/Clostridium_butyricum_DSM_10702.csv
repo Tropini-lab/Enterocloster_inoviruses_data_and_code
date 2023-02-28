@@ -1,0 +1,12 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>Prophage,FF104_RS21480_555-4229,3675,5148,0.6200
+NZ_CP040628,555,1256,340,1041,-,CDS,ID=FF104_RS21480;locus_tag=FF104_RS21480;product=hypothetical protein;pfam=Zot 60.8;inoPC=PC_006 84.5;coat_pred=NA
+NZ_CP040628,1269,1529,1054,1314,-,CDS,ID=FF104_RS21485;locus_tag=FF104_RS21485;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP040628,1529,2833,1314,2618,-,CDS,ID=FF104_RS21490;locus_tag=FF104_RS21490;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP040628,2922,3182,2707,2967,-,CDS,ID=FF104_RS21495;locus_tag=FF104_RS21495;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP040628,3201,3350,2986,3135,-,CDS,ID=FF104_RS21500;locus_tag=FF104_RS21500;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP040628,3347,3526,3132,3311,-,CDS,ID=FF104_RS21505;locus_tag=FF104_RS21505;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP040628,3532,3843,3317,3628,-,CDS,ID=FF104_RS21510;locus_tag=FF104_RS21510;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_CP040628,4053,4229,3838,4014,+,CDS,ID=FF104_RS21515;locus_tag=FF104_RS21515;product=helix-turn-helix transcriptional regulator;pfam=HTH_3 46.5;inoPC=NA;coat_pred=NA
+

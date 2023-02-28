@@ -1,0 +1,18 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>DR,CLOBOL_RS16210_77821-85517,7696,61951,0.6595,97.059,34
+NZ_DS480690,77920,79116,27614,28810,+,CDS,ID=CLOBOL_RS16190;locus_tag=CLOBOL_RS16190;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,79117,79335,28811,29029,+,CDS,ID=CLOBOL_RS16195;locus_tag=CLOBOL_RS16195;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,79429,80403,29123,30097,+,CDS,ID=CLOBOL_RS16200;locus_tag=CLOBOL_RS16200;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,80376,80519,30070,30213,+,CDS,ID=CLOBOL_RS31680;locus_tag=CLOBOL_RS31680;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,80705,80989,30399,30683,+,CDS,ID=CLOBOL_RS16205;locus_tag=CLOBOL_RS16205;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,81034,81195,30728,30889,+,CDS,ID=CLOBOL_RS31685;locus_tag=CLOBOL_RS31685;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,81195,81980,30889,31674,+,CDS,ID=CLOBOL_RS16210;locus_tag=CLOBOL_RS16210;product=hypothetical protein;pfam=Zot 32.5;inoPC=PC_055 69.7;coat_pred=NA
+NZ_DS480690,82074,82994,31768,32688,+,CDS,ID=CLOBOL_RS16215;locus_tag=CLOBOL_RS16215;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,82987,83166,32681,32860,+,CDS,ID=CLOBOL_RS16220;locus_tag=CLOBOL_RS16220;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,83513,83779,33207,33473,-,CDS,ID=CLOBOL_RS16230;locus_tag=CLOBOL_RS16230;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,83856,84107,33550,33801,-,CDS,ID=CLOBOL_RS16235;locus_tag=CLOBOL_RS16235;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,84311,84550,34005,34244,+,CDS,ID=CLOBOL_RS30810;locus_tag=CLOBOL_RS30810;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,84523,84723,34217,34417,+,CDS,ID=CLOBOL_RS16240;locus_tag=CLOBOL_RS16240;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,84810,85070,34504,34764,+,CDS,ID=CLOBOL_RS16245;locus_tag=CLOBOL_RS16245;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_DS480690,85232,85450,34926,35144,+,CDS,ID=CLOBOL_RS16250;locus_tag=CLOBOL_RS16250;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA

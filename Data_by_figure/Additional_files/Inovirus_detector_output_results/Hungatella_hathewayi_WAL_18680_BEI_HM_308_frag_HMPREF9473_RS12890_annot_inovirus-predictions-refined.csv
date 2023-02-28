@@ -1,0 +1,14 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>Integrase,HMPREF9473_RS12890_2870610-2879225,8615,63589,0.7495,96.154,53
+NZ_JH379027,2870661,2871713,27090,28142,-,CDS,ID=HMPREF9473_RS12860;locus_tag=HMPREF9473_RS12860;product=tyrosine-type recombinase/integrase;pfam=Phage_integrase 117.7;inoPC=NA;coat_pred=NA
+NZ_JH379027,2871824,2872558,28253,28987,-,CDS,ID=HMPREF9473_RS12865;locus_tag=HMPREF9473_RS12865;product=tRNA 2-thiocytidine(32) synthetase TtcA;pfam=ATP_bind_3 69.1;inoPC=NA;coat_pred=NA
+NZ_JH379027,2872687,2872920,29116,29349,+,CDS,ID=HMPREF9473_RS12870;locus_tag=HMPREF9473_RS12870;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2873069,2873323,29498,29752,+,CDS,ID=HMPREF9473_RS12875;locus_tag=HMPREF9473_RS12875;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2873385,2874968,29814,31397,+,CDS,ID=HMPREF9473_RS12880;locus_tag=HMPREF9473_RS12880;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2874972,2875205,31401,31634,+,CDS,ID=HMPREF9473_RS12885;locus_tag=HMPREF9473_RS12885;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2875216,2875977,31645,32406,+,CDS,ID=HMPREF9473_RS12890;locus_tag=HMPREF9473_RS12890;product=hypothetical protein;pfam=Zot 59.7;inoPC=PC_006 77.9;coat_pred=NA
+NZ_JH379027,2875972,2876157,32401,32586,-,CDS,ID=HMPREF9473_RS12895;locus_tag=HMPREF9473_RS12895;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2876309,2876485,32738,32914,+,CDS,ID=HMPREF9473_RS27365;locus_tag=HMPREF9473_RS27365;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2876680,2876925,33109,33354,+,CDS,ID=HMPREF9473_RS26870;locus_tag=HMPREF9473_RS26870;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JH379027,2877169,2878224,33598,34653,+,CDS,ID=HMPREF9473_RS12905;locus_tag=HMPREF9473_RS12905;product=replication initiation factor domain-containing protein;pfam=Rep_trans 143.7;inoPC=PC_003 44.5;coat_pred=NA

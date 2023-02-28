@@ -1,0 +1,17 @@
+## >Fragment type,Fragment Id_start-stop,final_fragment_length,initial_fragment_length,Prediction_confidence_score,DR identity %,DR length (last 2 columns only if an att site with a Direct Repeat was identified)
+## Contig,Start,Stop,Start_transformed,Stop_transformed,Strand,Type,Affiliations
+>DR,G5B26_RS22165_6488-14191,7703,28556,0.6595,97.368,38
+NZ_JAAISW010000058,6587,7783,5926,7122,+,CDS,ID=G5B26_RS22140;locus_tag=G5B26_RS22140;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,7784,8002,7123,7341,+,CDS,ID=G5B26_RS22145;locus_tag=G5B26_RS22145;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,8096,9070,7435,8409,+,CDS,ID=G5B26_RS22150;locus_tag=G5B26_RS22150;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,9372,9656,8711,8995,+,CDS,ID=G5B26_RS22155;locus_tag=G5B26_RS22155;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,9701,9862,9040,9201,+,CDS,ID=G5B26_RS22160;locus_tag=G5B26_RS22160;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,10000,10647,9339,9986,+,CDS,ID=G5B26_RS22165;locus_tag=G5B26_RS22165;product=hypothetical protein;pfam=NA;inoPC=PC_055 49.8;coat_pred=NA
+NZ_JAAISW010000058,10742,11662,10081,11001,+,CDS,ID=G5B26_RS22170;locus_tag=G5B26_RS22170;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,11655,11834,10994,11173,+,CDS,ID=G5B26_RS22175;locus_tag=G5B26_RS22175;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,12181,12447,11520,11786,-,CDS,ID=G5B26_RS22180;locus_tag=G5B26_RS22180;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,12524,12775,11863,12114,-,CDS,ID=G5B26_RS22185;locus_tag=G5B26_RS22185;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,12980,13219,12319,12558,+,CDS,ID=G5B26_RS22190;locus_tag=G5B26_RS22190;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,13192,13392,12531,12731,+,CDS,ID=G5B26_RS22195;locus_tag=G5B26_RS22195;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,13479,13739,12818,13078,+,CDS,ID=G5B26_RS22200;locus_tag=G5B26_RS22200;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
+NZ_JAAISW010000058,13901,14119,13240,13458,+,CDS,ID=G5B26_RS22205;locus_tag=G5B26_RS22205;product=hypothetical protein;pfam=NA;inoPC=NA;coat_pred=NA
